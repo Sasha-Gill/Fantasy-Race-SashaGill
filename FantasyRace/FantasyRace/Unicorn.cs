@@ -6,6 +6,6 @@ namespace FantasyRace
 {
     class Unicorn: Animal
     {
-      
+        
     }
 }
