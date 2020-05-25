@@ -7,6 +7,15 @@ namespace FantasyRace
     {
         static void Main(string[] args)
         {
+            Console.BackgroundColor = ConsoleColor.DarkCyan;
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.Clear();
+
+            Console.WriteLine("<|| Welcome to Fantasy Race!||> ");
+            Console.WriteLine("Reach the 20th position to win!");
+            Console.ReadLine();
+            Console.Clear();
+
             List<FantasyRace.Animal> animals = new List<Animal>();//skapar en list
             Console.WriteLine("How many animals would you like to create?");
             string djur = Console.ReadLine();//det som skrivs in  blir en string
