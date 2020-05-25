@@ -19,9 +19,9 @@ namespace FantasyRace
             }
             Random rng = new Random();//skapar en ny generator för de två slumpvalda djuren
 
-            for (int AnimNum = 0; amount > AnimNum; AnimNum++)//en for loop som körs så länge amount är större än animNum
+            for (int AnimNum = 0; AnimNum < amount; AnimNum++)//en for loop som körs så länge amount är större än animNum
             {
-                int x = rng.Next(1, 3);//1 och 3 då den tar värdet under
+                int x = rng.Next(1, 3);//Den tar ett värde mellan 1 och 2
 
                 if (x == 1)//om nummret blir 1 så sker följande
                 {
@@ -31,8 +31,33 @@ namespace FantasyRace
                 {
                     animals.Add(new Unicorn());//En Unicorn läggs till i listan
                 }
+            }
+            Console.WriteLine("Press ENTER to continue");
+            Console.ReadLine();
 
-            
+            int Round = 0;//rundorna, börjar på 0
+            Animal MainAnimal = animals[rng.Next(animals.Count)];//Ett djur slumpas från listan och blir Main animal.
+            while (MainAnimal.position < 20)//så länge 20 är större än current pos så körs loopen
+            {
+                string answer = "";//svaret på kommande fråga sparas i denna string
+                Console.WriteLine("Current round: "+Round);
+                MainAnimal.PrintStats();//Den visar djurets stats, print metoden
+                Console.WriteLine("Press 1 to move || Press 2 to rest");
+
+                while (answer!= "1" && answer!= "2")
+                {
+                    answer = Console.ReadLine();
+                }
+                if (answer == "1")
+                {
+                    MainAnimal.Move();
+                }
+                else if (answer == "2")
+                {
+                    MainAnimal.Rest();
+                }
+                ++Round;
+            }
 
             
         }
